@@ -16,80 +16,56 @@
       td
       {
       padding: 0;
-      border: 0px solid red;
+      border: 1px dashed gray;
+      border-top: none;
+      border-bottom: none;
       }
 
-      .pp
+      td.edge
       {
-      }
-
-      .np
-      {
-      -moz-transform: scaleX(-1);
-      -o-transform: scaleX(-1);
-      -webkit-transform: scaleX(-1);
-      transform: scaleX(-1);
-      filter: FlipH;
-      -ms-filter: "FlipH";
-      }
-
-      .pn
-      {
-      -moz-transform: scaleY(-1);
-      -o-transform: scaleY(-1);
-      -webkit-transform: scaleY(-1);
-      transform: scaleY(-1);
-      filter: FlipV;
-      -ms-filter: "FlipV";
-      }
-
-      .nn
-      {
-      -moz-transform: scale(-1);
-      -o-transform: scale(-1);
-      -webkit-transform: scale(-1);
-      transform: scale(-1);
-      filter: FlipH FlipV;
-      -ms-filter: "FlipH FlipV";
+      padding: 0;
+      border: none;
+      border-left: none;
+      border-right: none;
       }
     </style>
 
     <table>
       <tr>
-        <td> 1 &nbsp; </td>
-        <td> <img src="images/line.png" class="pp" /> </td>
-        <td> <img src="images/line.png" class="pp" /> </td>
-        <td> <img src="images/line.png" class="pp" /> </td>
-        <td> <img src="images/swap.png" class="pp" /> </td>
-        <td> <img src="images/line.png" class="pp" /> </td>
-        <td> &nbsp; 3 </td>
+        <td class="edge"> 1 &nbsp; </td>
+        <td> <img src="images/line.png" /> </td>
+        <td> <img src="images/line.png" /> </td>
+        <td> <img src="images/line.png" /> </td>
+        <td> <img src="images/swap-pos-top.png" /> </td>
+        <td> <img src="images/line.png" /> </td>
+        <td class="edge"> &nbsp; 3 </td>
       </tr>
       <tr>
-        <td> 2 &nbsp; </td>
-        <td> <img src="images/line.png" class="pp" /> </td>
-        <td> <img src="images/swap.png" class="np" /> </td>
-        <td> <img src="images/line.png" class="pp" /> </td>
-        <td> <img src="images/swap.png" class="nn" /> </td>
-        <td> <img src="images/line.png" class="pp" /> </td>
-        <td> &nbsp; 1 </td>
+        <td class="edge"> 2 &nbsp; </td>
+        <td> <img src="images/line.png" /> </td>
+        <td> <img src="images/swap-neg-top.png" /> </td>
+        <td> <img src="images/line.png" /> </td>
+        <td> <img src="images/swap-pos-bot.png" /> </td>
+        <td> <img src="images/line.png" /> </td>
+        <td class="edge"> &nbsp; 1 </td>
       </tr>
       <tr>
-        <td> 3 &nbsp; </td>
-        <td> <img src="images/line.png" class="pp" /> </td>
-        <td> <img src="images/swap.png" class="pn" /> </td>
-        <td> <img src="images/swap.png" class="pp" /> </td>
-        <td> <img src="images/line.png" class="pp" /> </td>
-        <td> <img src="images/line.png" class="pp" /> </td>
-        <td> &nbsp; 4 </td>
+        <td class="edge"> 3 &nbsp; </td>
+        <td> <img src="images/line.png" /> </td>
+        <td> <img src="images/swap-neg-bot.png" /> </td>
+        <td> <img src="images/swap-pos-top.png" /> </td>
+        <td> <img src="images/swap-pos-top.png" /> </td>
+        <td> <img src="images/line.png" /> </td>
+        <td class="edge"> &nbsp; 2 </td>
       </tr>
       <tr>
-        <td> 4 &nbsp; </td>
-        <td> <img src="images/line.png" class="pp" /> </td>
-        <td> <img src="images/line.png" class="pp" /> </td>
-        <td> <img src="images/swap.png" class="nn" /> </td>
-        <td> <img src="images/line.png" class="pp" /> </td>
-        <td> <img src="images/line.png" class="pp" /> </td>
-        <td> &nbsp; 2 </td>
+        <td class="edge"> 4 &nbsp; </td>
+        <td> <img src="images/line.png" /> </td>
+        <td> <img src="images/line.png" /> </td>
+        <td> <img src="images/swap-pos-bot.png" /> </td>
+        <td> <img src="images/swap-pos-bot.png" /> </td>
+        <td> <img src="images/line.png" /> </td>
+        <td class="edge"> &nbsp; 4 </td>
       </tr>
     </table>
 
