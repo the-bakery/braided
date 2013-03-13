@@ -3,14 +3,32 @@ var imgLine = 'images/line.png';
 var imgSwap = [['images/swap-pos-top.png', 'images/swap-pos-bot.png'],
                ['images/swap-neg-top.png', 'images/swap-neg-bot.png']];
 
-var strands = 3;
-var tiers = 2;
+var strands = 4;
+var tiers = 7;
 
-var matrix = [[0, 1,  0, 0],
-              [0, 0, -1, 0]];
+var matrix = [[0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0]
+             ];
+
+var imgMatrix = [];
 
 var width = 62;
 var height = 31;
+
+function tangle(r, c, img)
+{
+    var src = imgLine;
+    if (matrix[c][r  ] == +1) { src = imgSwap[0][1]; }
+    if (matrix[c][r  ] == -1) { src = imgSwap[1][1]; }
+    if (matrix[c][r+1] == +1) { src = imgSwap[0][0]; }
+    if (matrix[c][r+1] == -1) { src = imgSwap[1][0]; }
+    img.setAttribute('src', src);
+}
 
 function swap(r, c)
 {
@@ -18,11 +36,14 @@ function swap(r, c)
     {
         if (matrix[c][r-1] || matrix[c][r+1]) return;
 
-        var v = matrix[c][r];
-        v += 1;
-        if (v > 1) { v = -1; }
-        matrix[c][r] = v;
+        var state = matrix[c][r] + 1;
+        if (state > 1) { state = -1; }
+        matrix[c][r] = state;
 
+        /*
+        tangle(r-1, c, imgMatrix[r-1][c]);
+        tangle(r  , c, imgMatrix[r  ][c]);
+        */
         redraw();
     }
 }
@@ -38,8 +59,12 @@ function redraw()
     var box0 = '0,0,' + width + ',' + halfheight;
     var box1 = halfheight + ',0,' + width + ',' + height;
 
+    imgMatrix = [];
+
     for (var r = 0; r < strands; r++)
     {
+        var imgRow = [];
+
         var tr = document.createElement('tr');
         for (var c = 0; c < tiers; c++)
         {
@@ -66,18 +91,17 @@ function redraw()
             td.appendChild(map);
 
             var img = document.createElement('img');
-            var src = imgLine;
-            if (matrix[c][r  ] == +1) { src = imgSwap[0][1]; }
-            if (matrix[c][r  ] == -1) { src = imgSwap[1][1]; }
-            if (matrix[c][r+1] == +1) { src = imgSwap[0][0]; }
-            if (matrix[c][r+1] == -1) { src = imgSwap[1][0]; }
-            img.setAttribute('src', src);
+            tangle(r, c, img);
             img.setAttribute('usemap', '#' + name);
             td.appendChild(img);
+
+            imgRow.push(img);
 
             tr.appendChild(td);
         }
         table.appendChild(tr);
+
+        imgMatrix.push(imgRow);
     }
 }
 
